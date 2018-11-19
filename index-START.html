@@ -36,9 +36,16 @@
       console.log(this);
       const linkCoordinates = this.getBoundingClientRect();
       console.log(linkCoordinates);
-      highlight.style.width = `${linkCoordinates.width}px`;
-      highlight.style.height = `${linkCoordinates.height}px`;
-      highlight.style.transform = `translate(${linkCoordinates.left}px, ${linkCoordinates.top}px)`;
+      const coordinates = {
+      width: linkCoordinates.width,
+      height: linkCoordinates.height,
+      top: linkCoordinates.top + window.scrollY,
+      left: linkCoordinates.left + window.scrollX
+      };
+
+      highlight.style.width = `${coordinates.width}px`;
+      highlight.style.height = `${coordinates.height}px`;
+      highlight.style.transform = `translate(${coordinates.left}px, ${coordinates.top}px)`;
     }
 
     triggers.forEach(a => a.addEventListener("mouseenter", highlightLink));
