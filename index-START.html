@@ -38,6 +38,7 @@
       console.log(linkCoordinates);
       highlight.style.width = `${linkCoordinates.width}px`;
       highlight.style.height = `${linkCoordinates.height}px`;
+      highlight.style.transform = `translate(${linkCoordinates.left}px, ${linkCoordinates.top}px)`;
     }
 
     triggers.forEach(a => a.addEventListener("mouseenter", highlightLink));
